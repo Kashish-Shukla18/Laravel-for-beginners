@@ -18,14 +18,41 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     // return view('welcome');
     // to display data
-    $users=DB::select("select * from users ");
+    // $users=DB::select("select * from users ");
     // dd($users);
+
+    // query builder
+    $users=DB::table('users')->get(); //gives collection of array
+    // $users=DB::table('users')->where('id',1)->get();
+
+
     // to insert data
     // $user=DB::insert("insert into users (name,email,password) values (?,?,?)",
     // ['Kushagra','kushagra111awasthi@gmail.com','kushagra111']);
+    // query builder
+    // $users=DB::table('users')->insert([
+    //     'name'=>'Shashi',
+    //     'email'=>'shuklashashi@gmail.com',
+    //     'password'=>'shukla@2104',
+    // ]);
+
 
     // to update data
-    $user=DB::update("update users set email='kushagra222@gmail.com' where id=2");
+    // $user=DB::update("update users set email='kushagra222@gmail.com' where id=2");
+    // query builder
+    // $users=DB::table('users')->where('id',4)->update(['email'=>'shuklashashi@4208']);
+    // dd($users);
+
+
+    // to delete data
+    // $user=DB::delete("delete from users where id=2");
+    // query builder
+    // $users=DB::table('users')->where('id',4)->delete();
+
+    // to get first user from the array
+    // $user=DB::table('users')->first();
+    // $user=DB::table('users')->find(1);
+    // dd($user);
     dd($users);
 
 });
